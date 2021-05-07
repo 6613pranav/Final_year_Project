@@ -21,4 +21,4 @@ def split_data():
 
     return X_train, Y_train, X_test, Y_test
 
-# import these variables to Mocels
+# import these variables to Models
