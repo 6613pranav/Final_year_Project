@@ -1,5 +1,4 @@
 # importing packages
-import numpy as np
 import pandas as pd
 
 # reading the Dataset from csv file 
