@@ -21,4 +21,15 @@ def split_data():
 
     return X_train, Y_train, X_test, Y_test
 
-# import these variables to Mocels
+# import these variables to Models
+# X --> independent variable
+# Y --> Dependent variable
+
+# model <- X_train , y_train
+
+# model <- X_test  output : Y_predicted 
+# compare Y_predicted with Y_test
+
+# 3 diff files --> 3 models
+# 1 python file for Flask API
+# 1 python file for database connection
