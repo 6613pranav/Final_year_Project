@@ -15,35 +15,38 @@ except Exception as e:
     print("Exception caught in reading datasets",e)
 
 
+def ADA_Boost_Model( testing_data ):
+    try:
+        # Creating AB Model 
+        ada_boost_model = AdaBoostClassifier(n_estimators=50)
 
-try:
-    # Creating AB Model 
-    ada_boost_model = AdaBoostClassifier(n_estimators=50)
+        # Training the Model
+        ada_boost_model.fit(X_train,Y_train)
 
-    # Training the Model
-    ada_boost_model.fit(X_train,Y_train)
+        # Predicting values for class_label
+        y_predicted =   ada_boost_model.predict(X_test)
 
-    # Predicting values for class_label
-    y_predicted =   ada_boost_model.predict(X_test)
+        # Calculating Model reports
+        dict_report = {}
+        dict_report ['accuracy_score'] = accuracy_score( y_true = Y_test, y_pred = y_predicted ) 
+        dict_report ['classification_report'] = classification_report( Y_test, y_predicted )
+        dict_report ['confusion_matrix'] = confusion_matrix( Y_test, y_predicted )
+        dict_report ['predction_of_test_data'] = ada_boost_model.predict(testing_data)
+        
+        return dict_report
 
-    # Calculating Model reports
-    dict_report = {}
-    dict_report ['accuracy_score'] = accuracy_score( y_true = Y_test, y_pred = y_predicted ) 
-    dict_report ['classification_report'] = classification_report( Y_test, y_predicted )
-    dict_report ['confusion_matrix'] = confusion_matrix( Y_test, y_predicted )
+
+    except Exception as ex:
+        print('Caught Excption in model training / Prediction ',ex)
 
 
-except Exception as ex:
-    print('Caught Excption in model training / Prediction ',ex)
+
+
+
 
 
 
 # For Testing
-for i in dict_report:
-    print(i,dict_report[i])
-
-
-
 ## Evaluating Model
 
 # defining columns
@@ -55,7 +58,9 @@ df = pd.DataFrame(var).transpose()
 df.columns = lis_col
 
 # predicting dependant variable
-pred = ada_boost_model.predict(df)
-print(pred)
+result = ADA_Boost_Model(df)
+
+for i in result:
+    print( i,result[i])
 
 # Results will be same for all program execution because Ramdom state in train_test_split.py is constant 

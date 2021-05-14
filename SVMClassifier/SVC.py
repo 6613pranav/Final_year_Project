@@ -1,5 +1,5 @@
-# importing Libraries
-from sklearn.ensemble import RandomForestClassifier
+# import Statements
+from sklearn.svm import SVC
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 import sys
 import pandas as pd
@@ -14,29 +14,31 @@ try:
 except Exception as e:
     print("Exception caught in reading datasets",e)
 
-def Random_Forest_Model( testing_data):
+
+def SVC_Model ( testing_data):
     try:
-        # Creating RF Model 
-        random_forest_model = RandomForestClassifier(n_estimators=50)
+        # Creating SVC Model 
+        svc_model = SVC ( C=1.0, degree=3, kernel='rbf', gamma='auto' )
 
         # Training the Model
-        random_forest_model.fit(X_train,Y_train)
+        svc_model.fit(X_train,Y_train)
 
         # Predicting values for class_label
-        y_predicted =   random_forest_model.predict(X_test)
+        y_predicted =   svc_model.predict(X_test)
 
         # Calculating Model reports
         dict_report = {}
         dict_report ['accuracy_score'] = accuracy_score( y_true = Y_test, y_pred = y_predicted ) 
         dict_report ['classification_report'] = classification_report( Y_test, y_predicted )
         dict_report ['confusion_matrix'] = confusion_matrix( Y_test, y_predicted )
-        dict_report ['predction_of_test_data'] = random_forest_model.predict(testing_data)
+        dict_report ['predction_of_test_data'] = svc_model.predict(testing_data)
         
         return dict_report
 
 
     except Exception as ex:
         print('Caught Excption in model training / Prediction ',ex)
+
 
 
 # For Testing
@@ -51,7 +53,8 @@ df = pd.DataFrame(var).transpose()
 df.columns = lis_col
 
 # predicting dependant variable
-result = Random_Forest_Model(df)
+result = SVC_Model(df)
+
 
 for i in result:
     print( i,result[i])
