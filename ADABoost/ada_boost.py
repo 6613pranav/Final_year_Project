@@ -1,5 +1,5 @@
 # importing Libraries
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import AdaBoostClassifier
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 import sys
 import pandas as pd
@@ -17,14 +17,14 @@ except Exception as e:
 
 
 try:
-    # Creating RF Model 
-    random_forest_model = RandomForestClassifier(n_estimators=50)
+    # Creating AB Model 
+    ada_boost_model = AdaBoostClassifier(n_estimators=50)
 
     # Training the Model
-    random_forest_model.fit(X_train,Y_train)
+    ada_boost_model.fit(X_train,Y_train)
 
     # Predicting values for class_label
-    y_predicted =   random_forest_model.predict(X_test)
+    y_predicted =   ada_boost_model.predict(X_test)
 
     # Calculating Model reports
     dict_report = {}
@@ -38,9 +38,9 @@ except Exception as ex:
 
 
 
-## For Testing
-# for i in dict_report:
-#     print(i,dict_report[i])
+# For Testing
+for i in dict_report:
+    print(i,dict_report[i])
 
 
 
@@ -55,7 +55,7 @@ df = pd.DataFrame(var).transpose()
 df.columns = lis_col
 
 # predicting dependant variable
-pred = random_forest_model.predict(df)
+pred = ada_boost_model.predict(df)
 print(pred)
 
 # Results will be same for all program execution because Ramdom state in train_test_split.py is constant 

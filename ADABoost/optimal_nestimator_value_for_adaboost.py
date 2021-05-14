@@ -1,5 +1,5 @@
 # Importing Staements 
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import AdaBoostClassifier
 from sklearn.metrics import accuracy_score
 import sys  
 import matplotlib.pyplot as plt
@@ -23,20 +23,21 @@ try:
 
     # Calculating Accuracy of model with n_estimator value 1 to 200
     for k in range(1, 200):
-        model = RandomForestClassifier(n_estimators=k)
+        model = AdaBoostClassifier(n_estimators=k)
         model.fit(X_train, Y_train)
         y_pred = model.predict(X_test)
         results.append(accuracy_score(Y_test, y_pred))
 
 
     # Plotting Graph
-    plt.plot(range(1, 200), results)
+    plt.plot(range(1,200), results)
     plt.xlabel('Value of n_estimators for Random Forest Classifier')
     plt.ylabel('Testing Accuracy')
-    plt.savefig('./RandomForest/N_estimator_graph.png')
+    plt.savefig('./ADABoost/N_estimator_graph.png')
 
 except Exception as ex:
     print("Caught Exception in training model", ex)
 
 # Conclusion 
-# from the graph we can observe that any value > 50 for N_estimator will give good results in terms of Accuracy
+# from the graph we can observe that any value > 1 for N_estimator will give good results in terms of Accuracy
+# Bigger the value of N_Estimator better the result  will be , so we will take it as 50 
