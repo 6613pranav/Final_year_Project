@@ -1,7 +1,5 @@
-# Logistic regression is a supervised learning classification algorithm used to predict the probability of a target variable.
-
-# importing Libraries
-from sklearn.linear_model import LogisticRegression
+# import Statements
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 import sys
 import pandas as pd
@@ -17,24 +15,24 @@ except Exception as e:
     print("Exception caught in reading datasets",e)
 
 
-def Logistic_Regression_Model( testing_data ):
+def KNN_Model( testing_data ):
     try:
-        # Creating LR Model 
-        logistic_reg_model = LogisticRegression(max_iter=200)
+        # Creating KNN Model 
+        knn_classifier_model = KNeighborsClassifier()
 
         # Training the Model
-        logistic_reg_model.fit(X_train,Y_train)
+        knn_classifier_model.fit(X_train,Y_train)
 
         # Predicting values for class_label
-        y_predicted =   logistic_reg_model.predict(X_test)
+        y_predicted =   knn_classifier_model.predict(X_test)
 
         # Calculating Model reports
         dict_report = {}
         dict_report ['test_accuracy_score'] = accuracy_score( y_true = Y_test, y_pred = y_predicted )
-        dict_report ['train_accuracy_score'] = accuracy_score(Y_train, logistic_reg_model.predict(X_train))
+        dict_report ['train_accuracy_score'] = accuracy_score(Y_train, knn_classifier_model.predict(X_train))
         dict_report ['classification_report'] = classification_report( Y_test, y_predicted )
         dict_report ['confusion_matrix'] = confusion_matrix( Y_test, y_predicted )
-        dict_report ['predction_of_test_data'] = logistic_reg_model.predict(testing_data)
+        dict_report ['predction_of_test_data'] = knn_classifier_model.predict(testing_data)
         
         return dict_report
 
@@ -61,11 +59,10 @@ df = pd.DataFrame(var).transpose()
 df.columns = lis_col
 
 # predicting dependant variable
-result = Logistic_Regression_Model(df)
+result = KNN_Model(df)
 
 for i in result:
     print( i,result[i])
 
 # Results will be same for all program execution because Ramdom state in train_test_split.py is constant 
 
-# https://stackoverflow.com/questions/62658215/convergencewarning-lbfgs-failed-to-converge-status-1-stop-total-no-of-iter ( Why we took Max_itr= 200)
