@@ -28,7 +28,8 @@ def ADA_Boost_Model( testing_data ):
 
         # Calculating Model reports
         dict_report = {}
-        dict_report ['accuracy_score'] = accuracy_score( y_true = Y_test, y_pred = y_predicted ) 
+        dict_report ['test_accuracy_score'] = accuracy_score( y_true = Y_test, y_pred = y_predicted ) 
+        dict_report ['train_accuracy_score'] = accuracy_score(Y_train, ada_boost_model.predict(X_train))
         dict_report ['classification_report'] = classification_report( Y_test, y_predicted )
         dict_report ['confusion_matrix'] = confusion_matrix( Y_test, y_predicted )
         dict_report ['predction_of_test_data'] = ada_boost_model.predict(testing_data)
