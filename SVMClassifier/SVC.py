@@ -28,6 +28,7 @@ def SVC_Model ( testing_data):
 
         # Calculating Model reports
         dict_report = {}
+        dict_report [ 'model' ] = 'SVC'
         dict_report ['test_accuracy_score'] = accuracy_score( y_true = Y_test, y_pred = y_predicted )
         dict_report ['train_accuracy_score'] = accuracy_score(Y_train, svc_model.predict(X_train)) 
         dict_report ['classification_report'] = classification_report( Y_test, y_predicted )
@@ -42,21 +43,21 @@ def SVC_Model ( testing_data):
 
 
 
-# For Testing
-## Evaluating Model
+# # For Testing
+# ## Evaluating Model
 
-# defining columns
-lis_col = [ 'A1', 'A2', 'A3','A4','A5','A6','A7','A8','A9','A10','Age_Mons','Qchat-10-Score','Sex','Ethnicity','Jaundice','Family_mem_with_ASD']
+# # defining columns
+# lis_col = [ 'A1', 'A2', 'A3','A4','A5','A6','A7','A8','A9','A10','Age_Mons','Sex','Ethnicity','Jaundice','Family_mem_with_ASD']
 
-# defining values of columns
-var = [1,1,0,0,0,1,1,0,0,0,24,4,0,2,1,0]
-df = pd.DataFrame(var).transpose()
-df.columns = lis_col
+# # defining values of columns
+# var = [1,1,0,0,0,1,1,0,0,0,24,0,2,1,0]
+# df = pd.DataFrame(var).transpose()
+# df.columns = lis_col
 
-# predicting dependant variable
-result = SVC_Model(df)
+# # predicting dependant variable
+# result = SVC_Model(df)
 
 
-for i in result:
-    print( i,result[i])
+# for i in result:
+#     print( i,result[i])
 # Results will be same for all program execution because Ramdom state in train_test_split.py is constant 
