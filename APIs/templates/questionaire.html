@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Autism Questioniare</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/style.css') }}" >
+  </head>
+  <body background="{{ url_for('static', filename='/background.png') }}">
+    <div class="testbox">
+      <form action="/ques" method="POST">
+
+        <!-- Banner Image -->
+        <div class="banner">
+            <h1>Child Autism Test</h1>
+        </div>
+          <br>
+          <br>
+
+
+        <!-- Child's Name -->
+        <div class="item">
+            <p>Child's Name</p>
+            <div class="name-item">
+              <input type="text" name="fname" placeholder="First" />
+              <input type="text" name="lname" placeholder="Last" />
+            </div>
+        </div>
+        <br>
+
+        <!-- Email id -->
+        <div class="item">
+            <p>Email</p>
+            <input type="email" name="email"/>
+        </div>
+        <br>
+
+        <!-- Child's DOB -->
+        <div class="item">
+            <p>Child's DOB</p>
+            <input type="date" name="bdate" required/>
+            <i class="fas fa-calendar-alt"></i>
+        </div>
+        <br>
+
+        <!--Child's Sex -->
+        <div class="question">
+            <p>Gender</p>
+            <div class="question-answer">
+              <div>
+                <input type="radio" value="male" id="radio_1" name="gender"/>
+                <label for="radio_1" class="radio"><span>Male</span></label>
+              </div>
+              <div>
+                <input type="radio" value= "female" id="radio_2" name="gender"/>
+                <label for="radio_2" class="radio"><span>Female</span></label>
+              </div>
+            </div>
+        </div>
+        <br>
+
+  
+
+        <!-- question 1 -->
+        <div class="question">
+            <p>Q1. Does your kid see towards you when his/her name is called? </p>
+            <div class="question-answer">
+              <div>
+                <input type="radio" value="yes" id="radio_3" name="question1"/>
+                <label for="radio_3" class="radio"><span>Yes</span></label>
+              </div>
+              <div>
+                <input type="radio" value="no" id="radio_4" name="question1"/>
+                <label for="radio_4" class="radio"><span>No</span></label>
+              </div>
+            </div>
+        </div>
+        <br>
+
+
+        <!-- question 2 -->
+        <div class="question">
+            <p> Q2. Is it easy for you to make eye contact with your kid ? </p>
+            <div class="question-answer">
+              <div>
+                <input type="radio" value="yes" id="radio_5" name="question2"/>
+                <label for="radio_5" class="radio"><span>Yes</span></label>
+              </div>
+              <div>
+                <input type="radio" value="no" id="radio_6" name="question2"/>
+                <label for="radio_6" class="radio"><span>No</span></label>
+              </div>
+            </div>
+        </div>
+        <br>
+
+
+        <!-- question 3 -->
+        <div class="question">
+            <p> Q3. Does the kid point towards things indicating that she/he wants something ? (e.g. a toy)</p>
+            <div class="question-answer">
+              <div>
+                <input type="radio" value="yes" id="radio_7" name="question3"/>
+                <label for="radio_7" class="radio"><span>Yes</span></label>
+              </div>
+              <div>
+                <input type="radio" value="no" id="radio_8" name="question3"/>
+                <label for="radio_8" class="radio"><span>No</span></label>
+              </div>
+            </div>
+        </div>
+        <br>
+
+        <!-- question 4 -->
+        <div class="question">
+            <p>Q4. Does the kid point to share interest with you ? (e.g. pointing towards his/her favourite toy )</p>
+            <div class="question-answer">
+              <div>
+                <input type="radio" value="yes" id="radio_9" name="question4"/>
+                <label for="radio_9" class="radio"><span>Yes</span></label>
+              </div>
+              <div>
+                <input type="radio" value="no" id="radio_10" name="question4"/>
+                <label for="radio_10" class="radio"><span>No</span></label>
+              </div>
+            </div>
+        </div>
+        <br>
+
+
+        <!-- question 5 -->
+        <div class="question">
+            <p> Q5. Does the kid pretend ? (e.g. caring for toys , talking on a toy phone)</p>
+            <div class="question-answer">
+              <div>
+                <input type="radio" value="yes" id="radio_11" name="question5"/>
+                <label for="radio_11" class="radio"><span>Yes</span></label>
+              </div>
+              <div>
+                <input type="radio" value="no" id="radio_12" name="question5"/>
+                <label for="radio_12" class="radio"><span>No</span></label>
+              </div>
+            </div>
+        </div>
+        <br>
+
+        <!-- question 6 -->
+        <div class="question">
+            <p>Q6. Does your child follow where you’re looking ? </p>
+            <div class="question-answer">
+              <div>
+                <input type="radio" value="yes" id="radio_13" name="question6"/>
+                <label for="radio_13" class="radio"><span>Yes</span></label>
+              </div>
+              <div>
+                <input type="radio" value="no" id="radio_14" name="question6"/>
+                <label for="radio_14" class="radio"><span>No</span></label>
+              </div>
+            </div>
+        </div>
+        <br>
+
+        <!-- question 7 -->
+        <div class="question">
+            <p> Q7. If you or someone else in the family is visibly upset , does your child show signs of
+                wanting to comfort them ?  (e.g. stroking hair , hugging them)</p>
+            <div class="question-answer">
+              <div>
+                <input type="radio" value="yes" id="radio_15" name="question7"/>
+                <label for="radio_15" class="radio"><span>Yes</span></label>
+              </div>
+              <div>
+                <input type="radio" value="no" id="radio_16" name="question7"/>
+                <label for="radio_16" class="radio"><span>No</span></label>
+              </div>
+            </div>
+        </div>
+        <br>
+
+        <!-- question 8 -->
+        <div class="question">
+            <p> Q8. Can you describe first words of your child ?</p>
+            <div class="question-answer">
+              <div>
+                <input type="radio" value="yes" id="radio_17" name="question8"/>
+                <label for="radio_17" class="radio"><span>Yes</span></label>
+              </div>
+              <div>
+                <input type="radio" value="no" id="radio_18" name="question8"/>
+                <label for="radio_18" class="radio"><span>No</span></label>
+              </div>
+            </div>
+        </div>
+        <br>
+
+        <!-- question 9 -->
+        <div class="question">
+            <p>Q9. Does the kid uses simple gestures ? (e.g. waving goodbye)</p>
+            <div class="question-answer">
+              <div>
+                <input type="radio" value="yes" id="radio_19" name="question9"/>
+                <label for="radio_19" class="radio"><span>Yes</span></label>
+              </div>
+              <div>
+                <input type="radio" value="no" id="radio_20" name="question9"/>
+                <label for="radio_20" class="radio"><span>No</span></label>
+              </div>
+            </div>
+        </div>
+        <br>
+
+         <!-- question 10 -->
+         <div class="question">
+            <p>Q10. Does the kid focuses at nothing with no certain purpose ? </p>
+            <div class="question-answer">
+              <div>
+                <input type="radio" value="yes" id="radio_21" name="question10"/>
+                <label for="radio_21" class="radio"><span>Yes</span></label>
+              </div>
+              <div>
+                <input type="radio" value="no" id="radio_22" name="question10"/>
+                <label for="radio_22" class="radio"><span>No</span></label>
+              </div>
+            </div>
+        </div>
+        <br>
+
+
+
+        <!-- <div class="item">
+          <p>Phone</p>
+          <input type="text" name="phone" placeholder="### ### ####"/>
+        </div> -->
+
+        
+
+
+          <!-- <div class="item">
+            <p>Language</p>
+            <input type="text" name="language"/>
+          </div> -->
+
+       
+        <!-- Ethinicity -->
+        <div class="item">
+          <p> Origin </p>
+          <!-- <input type="text" name="name" placeholder="Street address" required/>
+          <input type="text" name="name" placeholder="Street address line 2" required/>
+          <div class="city-item">
+            <input type="text" name="name" placeholder="City" required/>
+            <input type="text" name="name" placeholder="Region" required/>
+            <input type="text" name="name" placeholder="Postal / Zip code" required/> -->
+            <select required name="origin">
+              <option value="">Ethinicity</option>
+              <option value="1">Middle Eastern</option>
+              <option value="2">White European</option>
+              <option value="3">Hispanic</option>
+              <option value="4">Black</option>
+              <option value="5">Asian</option>
+              <option value="6">South Asian</option>
+              <option value="7">Native Indian</option>
+              <option value="8">Others</option>
+              <option value="9">Latino</option>
+              <option value="10">mixed</option>
+              <option value="11">Pacifica</option>
+            </select>
+          <!-- </div> -->
+        </div>
+        <br>
+
+        <!-- jaundice -->
+        <div class="question">
+            <p>Does you child has jaundice or not ?</p>
+            <div class="question-answer">
+              <div>
+                <input type="radio" value="yes" id="radio_23" name="jaundice"/>
+                <label for="radio_23" class="radio"><span>Yes</span></label>
+              </div>
+              <div>
+                <input type="radio" value="no" id="radio_24" name="jaundice"/>
+                <label for="radio_24" class="radio"><span>No</span></label>
+              </div>
+            </div>
+        </div>
+        <br>
+        
+
+        <!-- Family Member with ASD -->
+        <div class="question">
+            <p>Is there any Family background with ASD ?</p>
+            <div class="question-answer">
+              <div>
+                <input type="radio" value="yes" id="radio_25" name="fasd"/>
+                <label for="radio_25" class="radio"><span>Yes</span></label>
+              </div>
+              <div>
+                <input type="radio" value="no" id="radio_26" name="fasd"/>
+                <label for="radio_26" class="radio"><span>No</span></label>
+              </div>
+            </div>
+        </div>
+        <br>
+
+
+        <!-- Who completed the test -->
+        <div class="item">
+          <p>Who completed the test ?</p>
+          <input type="text" name="who_completed_the_test" />
+        </div>
+        <br>
+
+
+        <div class="item">
+          <p>Illness (if any)</p>
+          <input type="text" name="illness" />
+        </div>
+        <!-- <div class="item">
+          <p>Additional Message</p>
+          <textarea rows="3"></textarea>
+        </div> -->
+        <div class="btn-block">
+          <button type="submit" href="/">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
