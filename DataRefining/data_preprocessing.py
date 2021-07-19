@@ -4,6 +4,9 @@ import pandas as pd
 # reading the Dataset from csv file 
 asd_data = pd.read_csv('./Datasets/Toddler_Autism_dataset.csv',index_col=0)
 
+# Printing the initial Datasets
+print('\n\n',asd_data.head(),'\n\n',)
+
 # Checking columns of the toddler dataset
 print('Initial columns of the dataset',asd_data.columns)
 
@@ -92,7 +95,7 @@ asd_data['Ethnicity'].replace('Pacifica',11,inplace=True)
 print('\nPrinting unique attributes of column (Who_completed_the_test)',asd_data.Who_completed_the_test.unique())
 
 # dropping the below column because they wont be a useful parameter to decide the ASD 
-asd_data.drop(['Who_completed_the_test'], axis=1, inplace=True)
+asd_data.drop(['Who_completed_the_test', 'Qchat-10-Score'], axis=1, inplace=True)
 
 
 print('\nFinal column of the dataset',asd_data.columns)
